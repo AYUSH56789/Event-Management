@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <div class="row ">
-                        <a href="" class="mr-0">Student/user Registeration?</a>
+                        <a href="" >Student/user Registeration?</a>
                     </div>
                     <div class="container text-center my-3 ">
                         <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Login</button>
