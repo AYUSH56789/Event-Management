@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Landing_page;
+use App\Http\Controllers\Student;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +48,7 @@ Route::get('/admin/society/{id}',[Admin::class,"delete"])->name('admin.society.d
 // society routes
 
 // user/student routes
+Route::get('/student',[Student::class,"index"])->name('student.home');
+Route::get('/student/event',[Student::class,"event"])->name('student.event');
+Route::get('/student/certificate',[Student::class,"certificate"])->name('student.certification');
+Route::get('/student/attendence',[Student::class,"attendence"])->name('student.attendence');
