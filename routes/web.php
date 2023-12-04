@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Landing_page;
+use App\Http\Controllers\Society;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,5 +46,9 @@ Route::post('/admin/registration/add',[Admin::class,'store'])->name('admin.creat
 Route::get('/admin/society/{id}',[Admin::class,"delete"])->name('admin.society.delete');
 
 // society routes
-
+Route::get('/society',[Society::class,"index"])->name('society.home');  
+Route::get('/society/member',[Society::class,"member"])->name('society.member');  
+Route::get('/society/event',[Society::class,"event"])->name('society.event');  
+Route::get('/society/certificate',[Society::class,"certificate"])->name('society.certificate');  
+Route::get('/society/attendence',[Society::class,"attendence"])->name('society.attendence');  
 // user/student routes
