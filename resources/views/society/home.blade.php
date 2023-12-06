@@ -47,11 +47,12 @@
             style="display: flex; justify-content: center; align-items: center;  background-color: black;">
             <h4 class="m-0 p-0">Upcoming Event Status</h4>
         </div>
-            <table class="table table-striped table-inverse table-responsive">
+            <table class="table  table-inverse table-responsive">
                 <thead class="thead-inverse">
                     <tr>
                         <th>Event</th>
                         <th>Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
