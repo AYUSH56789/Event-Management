@@ -2,9 +2,7 @@
 @push('title')
 <title>student</title>
 @section('main-section')
-
-<div class="container-fluid">
-    <div class="row py-2">
+<div class="row px-3 py-2">
         <div class="col-md-4 col-sm-12 ">
             <div class="container-fluid  text-white py-2 rounded-top"
         style="display: flex; justify-content: center; align-items: center;  background-color: black;">
@@ -80,7 +78,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
 </div>
-
 @endsection
