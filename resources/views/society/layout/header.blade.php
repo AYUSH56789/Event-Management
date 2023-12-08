@@ -26,11 +26,22 @@
         }
         .nav-link.active {
             /* width: 20%; */
-      border-bottom: 2px solid #007bff; /* Set the color of the line below the active link */
+      border-bottom: 2px solid #007bff; Set the color of the line below the active link
     }
     .navbar-collapse.show .nav-link.active {
             width: 20%; /* Set the width when the toggler is open */
         }
+
+            /* drop-down */
+            .dropdown-item:focus,
+.dropdown-item.active {
+    background-color: transparent; /* Set the background to transparent */
+    color: #000; /* Set the text color to your desired color */
+}
+.drop:hover{
+    color: black;
+    background: white;
+}
 
     /* society card css */
     .borde {
@@ -251,12 +262,16 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link text-light {{ request()->routeIs('society.home') ? 'active' : '' }}" href="{{route('society.home')}}">Home </a>
                 </li>
-                <li class="nav-item mx-2">
+                {{-- <li class="nav-item mx-2">
                     <a class="nav-link text-light {{ request()->routeIs('society.member') ? 'active' : '' }}" href="{{route('society.member')}}">Member</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link text-light {{ request()->routeIs('society.event') ? 'active' : '' }}" href="{{route('society.event')}}">Event</a>
-                </li>
+                </li> --}}
+                <li class="nav-item mx-2 dropdown">
+                    <a class="nav-link dropdown-toggle text-light" {{ request()->routeIs('society.event') ? 'active' : '' }} href="#" role="button" data-bs-toggle="dropdown">Event</a>
+                    <ul class="dropdown-menu ">
+                      <li class=""><a class="dropdown-item drop" {{ request()->routeIs('society.event_create') ? 'active' : '' }}  href="{{route('society.event_create')}}">Create Event</a></li>
+                      <li class=""><a class="dropdown-item drop" {{ request()->routeIs('society.event') ? 'active' : '' }}  href="{{route('society.event')}}">Event List</a></li>
+                    </ul>
+                  </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link text-light {{ request()->routeIs('society.certificate') ? 'active' : '' }}" href="{{route('society.certificate')}}">Certificate</a>
                 </li>
@@ -270,7 +285,6 @@
             </form>
         </div>
     </nav>
-
     <script>
         document.querySelector('.custom-toggler').addEventListener('click', function () {
             document.querySelector('#navbarNav').classList.toggle('show');

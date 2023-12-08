@@ -15,6 +15,9 @@ class Society extends Controller
     public function event(){
         return view('society.event');
     }
+    public function event_create(){
+        return view('society.event_create');
+    }
     public function certificate(){
         return view('society.certificate');
     }
