@@ -4,7 +4,7 @@
 @section('main-section')
 {{-- <h1>student-event section is under maintainance</h1> --}}
  <div class="row m-3 border  px-2 py-3  rounded">
-        <div class="col-md-3 col-sm-12 col-sm-12 d-flex flex-column justify-content-center align-items-center  text-center ">
+        <div class="col-md-3 col-sm-12 col-sm-12 d-flex flex-column justify-content-center align-items-center  text-center p-2">
            {{-- <div class="container " > </div> --}}
            {{-- <img class="card-img-top borde" src="{{ asset('img.png') }}" alt="Card image cap"> --}}
            <div class="
