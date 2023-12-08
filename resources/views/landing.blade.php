@@ -118,7 +118,7 @@
                     <!-- @csrf -->
                     <div class="row ">
                         <div class="col-12 col-sm-12 py-2">
-                            <select class="form-select" name="role" form-select" aria-label=".form-select-lg example">
+                            <select class="form-select" name="role" form-select aria-label=".form-select-lg example">
                                 <option selected>Select your Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="Society">Society</option>
