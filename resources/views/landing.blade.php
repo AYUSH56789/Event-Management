@@ -60,6 +60,11 @@
         border-color: #00E0FF; /* Change border color on hover */
     }
 
+/* modal css */
+    .modal-header .btn-close {
+            color: #fff; 
+            border: 1px solid #fff;
+        }
 
     </style>
 </head>
@@ -151,11 +156,113 @@
                                   </span>
                         </div>
                     </div>
-                    <div class="row ">
-                        <a href="" class="mr-0">Student/user Registeration?</a>
-                    </div>
+                    <a href="#" class="link-primary link-offset-2 link-underline link-underline-opacity-0" data-bs-toggle="modal" data-bs-target="#myModal">Student/User New Registration?</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white">
+                                    <h4 class="modal-title ">User Registartion Form</h4>
+                                    <button type="button" class="btn-close bg-dark text-white" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{-- <div class="conatiner m-3 border rounded" > --}}
+                                        {{-- <div class="container bg-dark text-white"> --}}
+                                            {{-- <h3 class="text-center h1 bg-dark text-white p-1 rounded-top">Create Event</h3> --}}
+                                        {{-- </div>     --}}
+                                    <form action=" " method="post" class="px-4 py-2">
+                                        @csrf
+                                        <div class="row ">
+                                            <div class="col-md-6 py-2">
+                                              <input type="text" class="form-control" placeholder="Name" name="name" value="{{old('name')}}">
+                                              <span class="text-danger">
+                                                @error('name')
+                                                {{$message}}
+                                                @enderror
+                                              </span>
+                                            </div>
+                                            <div class="col-md-6 py-2">
+                                                <input type="text" class="form-control" placeholder="Branch Name" name="branch_name" value="{{old('branch_name')}}">
+                                                <span class="text-danger">
+                                                  @error('branch_name')
+                                                  {{$message}}
+                                                  @enderror
+                                                </span>
+                                              </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 py-2">
+                                              <input type="text" class="form-control" placeholder="Urn" name="urn" value="{{old('urn')}}">
+                                              <span class="text-danger">
+                                                @error('urn')
+                                                {{$message}}
+                                                @enderror
+                                              </span>
+                                            </div>
+                                            <div class="col-md-6 py-2">
+                                              <input type="text" class="form-control" placeholder="Crn" name="crn" value="{{old('crn')}}">
+                                              <span class="text-danger">
+                                                @error('crn')
+                                                {{$message}}
+                                                @enderror
+                                              </span>
+                                            </div>
+                                          </div>
+                                        <div class="row">
+                                            <div class="col-md-6 py-2">
+                                              <input type="text" class="form-control" placeholder="Year"  name="year" value="{{old('year')}}">
+                                              <span class="text-danger">
+                                                @error('year')
+                                                {{$message}}
+                                                @enderror
+                                              </span>
+                                            </div>
+                                           
+                                                <div class="col-md-6 py-2">
+                                                    <input type="text" class="form-control" placeholder="Email" name="user_email" value="{{old('user_co')}}">
+                                                    <span class="text-danger">
+                                                      @error('user-email')
+                                                      {{$message}}
+                                                      @enderror
+                                                    </span>
+                                                  </div>
+                                            
+                                          </div>
+                                          <div class="row">
+                                          <div class="col-md-6 py-2">
+                                            <input type="file" class="form-control" placeholder="Photo" name="photo" value="{{old('photo')}}">
+                                            <span class="text-danger">
+                                              @error('photo')
+                                              {{$message}}
+                                              @enderror
+                                            </span>
+                                          </div>
+                                          <div class="col-md-6 py-2">
+                                            <input type="text" class="form-control" placeholder="Contact" name="user_contact" value="{{old('user_co')}}">
+                                            <span class="text-danger">
+                                              @error('user_contact')
+                                              {{$message}}
+                                              @enderror
+                                            </span>
+                                          </div>
+                                          </div>
+                                        
+                                            
+                                          
+                                          
+                                          <div class="container text-center my-3 ">
+                                    <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Submit</button>
+                                    <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
+                                    </div>
+                                    </form>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    {{-- </div> --}}
                     <div class="container text-center my-3 ">
-                        <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Login</button>
+                        <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Register</button>
                         <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
                     </div>
                 </form>
