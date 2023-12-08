@@ -17,7 +17,8 @@
             <div class="row">
                 <div class="col  text-center">
                             <h3 > <b>Cyber Security And Ethical Hacking</b> </h3>
-                    
+                            <hr style="border: 1px solid; color:#007bff">
+
                 </div>
             </div>
             <div class="row">
@@ -25,8 +26,8 @@
                 <div class="col-md-6 col-sm-12 p-1 text-center">Date - 12/03/2023</div>
                 <div class="col-md-6 col-sm-12 p-1 text-center">Duration - 2hrs</div>
                 <div class="col-md-6 col-sm-12 p-1 text-center">Registration End Date : 15/05/2023</div>
-                <div class="col-md-6 col-sm-12 p-1 text-center"></div>
-                <div class="col-md-6 col-sm-12 p-1 text-center"></div>
+                {{-- <div class="col-md-6 col-sm-12 p-1 text-center"></div> --}}
+                {{-- <div class="col-md-6 col-sm-12 p-1 text-center"></div> --}}
             </div>
         </div>
         <div class="col-md-3 col-sm-12 d-flex flex-column justify-content-center align-items-center  text-center">
