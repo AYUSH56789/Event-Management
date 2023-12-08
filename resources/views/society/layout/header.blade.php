@@ -268,8 +268,8 @@
                 <li class="nav-item mx-2 dropdown">
                     <a class="nav-link dropdown-toggle text-light" {{ request()->routeIs('society.event') ? 'active' : '' }} href="#" role="button" data-bs-toggle="dropdown">Event</a>
                     <ul class="dropdown-menu ">
-                      <li class=""><a class="dropdown-item drop" {{ request()->routeIs('society.event_create') ? 'active' : '' }}  href="{{route('society.event_create')}}">Create Event</a></li>
-                      <li class=""><a class="dropdown-item drop" {{ request()->routeIs('society.event') ? 'active' : '' }}  href="{{route('society.event')}}">Event List</a></li>
+                        <li class=""><a class="dropdown-item drop" {{ request()->routeIs('society.event') ? 'active' : '' }}  href="{{route('society.event')}}">Event List</a></li>
+                        <li class=""><a class="dropdown-item drop" {{ request()->routeIs('society.event_create') ? 'active' : '' }}  href="{{route('society.event_create')}}">Create Event</a></li>
                     </ul>
                   </li>
                 <li class="nav-item mx-2">
