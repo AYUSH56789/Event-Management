@@ -9,7 +9,7 @@
            {{-- <img class="card-img-top borde" src="{{ asset('img.png') }}" alt="Card image cap"> --}}
            <div class="
            ">
-            <img src="{{ asset('img.png') }}" height="80px" width="80px" style="border-radius: 40px;">
+            <img src="{{ asset('img.png') }}" height="150px" width="150px" style="border-radius: 80px;">
         </div>
 
         </div>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-12 d-flex flex-column justify-content-center align-items-center  text-center">
-            <div class="btn btn-dark rounded custom-btn w-100 mb-2 ">Know More</div> 
+            <div class="btn btn-dark rounded custom-btn w-100 my-3 ">Know More</div> 
             <div class="btn btn-dark rounded custom-btn w-100">Register</div>
         </div>
         
