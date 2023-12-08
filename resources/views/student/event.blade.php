@@ -22,10 +22,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-12 p-1 text-center">Mode - Online</div>
-                <div class="col-md-6 col-sm-12 p-1 text-center">Date - 12/03/2023</div>
-                <div class="col-md-6 col-sm-12 p-1 text-center">Duration - 2hrs</div>
-                <div class="col-md-6 col-sm-12 p-1 text-center">Registration End Date : 15/05/2023</div>
+                <div class="col-md-6 col-sm-12 text-center">Mode - Online</div>
+                <div class="col-md-6 col-sm-12 text-center">Date - 12/03/2023</div>
+                <div class="col-md-6 col-sm-12 text-center">Duration - 2hrs</div>
+                <div class="col-md-6 col-sm-12 text-center">Registration End Date : 15/05/2023</div>
                 {{-- <div class="col-md-6 col-sm-12 p-1 text-center"></div> --}}
                 {{-- <div class="col-md-6 col-sm-12 p-1 text-center"></div> --}}
             </div>
