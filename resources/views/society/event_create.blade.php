@@ -4,9 +4,9 @@
 @section('main-section')
 <div class="conatiner m-3 border rounded" >
     {{-- <div class="container bg-dark text-white"> --}}
-        <h2 class="text-center h1 bg-dark text-white p-2 rounded-top">Create Event</h2>
+        <h3 class="text-center h1 bg-dark text-white p-1 rounded-top">Create Event</h3>
     {{-- </div>     --}}
-<form action="{{url('/')}}/admin/registration/add" method="post" class="px-4 py-2">
+<form action=" " method="post" class="px-4 py-2">
     @csrf
     <div class="row ">
         <div class="col-md-6 py-2">
