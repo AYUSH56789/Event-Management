@@ -156,7 +156,6 @@
                                   </span>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <a href="#" class="link-primary link-offset-2 link-underline link-underline-opacity-0" data-bs-toggle="modal" data-bs-target="#myModal">Student/User New Registration?</a>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal">
@@ -262,11 +261,6 @@
                             </div>
                         </div>
                     {{-- </div> --}}
-=======
-                    <div class="row ">
-                        <a href="" >Student/user Registeration?</a>
-                    </div>
->>>>>>> user_layer
                     <div class="container text-center my-3 ">
                         <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Submit</button>
                         <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>

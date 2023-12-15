@@ -34,6 +34,8 @@ use App\Http\Controllers\Student;
 
 // require __DIR__.'/auth.php';
 
+
+
 // landing page
 Route::get('/',[Landing_page::class,"homepage"])->name('homepage');
 
@@ -53,7 +55,6 @@ Route::get('/society/event',[Society::class,"event"])->name('society.event');
 Route::get('/society/event_create',[Society::class,"event_create"])->name('society.event_create');  
 Route::get('/society/certificate',[Society::class,"certificate"])->name('society.certificate');  
 Route::get('/society/attendence',[Society::class,"attendence"])->name('society.attendence');  
-// user/student routes
 
 // user/student routes
 Route::get('/student',[Student::class,"index"])->name('student.home');
