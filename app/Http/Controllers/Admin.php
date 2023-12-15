@@ -41,8 +41,8 @@ class Admin extends Controller
                 "society_conviner"=>"required",
                 "society_contact"=>"required ",
                 "society_email"=>"required | email ",
-                // "society_logo"=>"required",
-                // "society_banner"=>"required",
+                // "society_logo"=>"required", //pending
+                // "society_banner"=>"required", //pending
                 "society_description"=>"required"
             ]
             );

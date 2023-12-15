@@ -282,9 +282,9 @@
             <div class="col-md-4 py-2">
                 <select class="form-select form-select" name="society" aria-label=".form-select-lg example">
                     <option selected>Select Society</option>
-                    <option value="CSI">CSI</option>
-                    <option value="ISTE">ISTE</option>
-                    <option value="ITian club">ITian club</option>
+                    @foreach($data as $s_name)
+                    <option value="CSI">{{$s_name}}</option>
+                    @endforeach
                   </select>
                   <span class="text-danger">
                     @error('society')

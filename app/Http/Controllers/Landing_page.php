@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use society modal
+use App\Models\Society;
 
 class Landing_page extends Controller
 {
@@ -20,6 +22,12 @@ class Landing_page extends Controller
         //         "society_description"=>"required"
         //     ]
         //     );
-        return view('landing');
+        $data=Society::pluck("society_name");
+        $data=compact('data');
+        
+        // echo "<pre>";
+        // print_r($data);
+
+        return view('landing')->with($data);
     }
 }
