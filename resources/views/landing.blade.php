@@ -251,7 +251,7 @@
                                           
                                           
                                           <div class="container text-center my-3 ">
-                                    <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Submit</button>
+                                    <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Register</button>
                                     <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
                                     </div>
                                     </form>
@@ -262,7 +262,7 @@
                         </div>
                     {{-- </div> --}}
                     <div class="container text-center my-3 ">
-                        <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Register</button>
+                        <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Submit</button>
                         <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
                     </div>
                 </form>
