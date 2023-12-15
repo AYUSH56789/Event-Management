@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Landing_page;
 use App\Http\Controllers\Society;
+use App\Http\Controllers\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,9 @@ Route::get('/society/event_create',[Society::class,"event_create"])->name('socie
 Route::get('/society/certificate',[Society::class,"certificate"])->name('society.certificate');  
 Route::get('/society/attendence',[Society::class,"attendence"])->name('society.attendence');  
 // user/student routes
+
+// user/student routes
+Route::get('/student',[Student::class,"index"])->name('student.home');
+Route::get('/student/event',[Student::class,"event"])->name('student.event');
+Route::get('/student/certificate',[Student::class,"certificate"])->name('student.certification');
+Route::get('/student/attendence',[Student::class,"attendence"])->name('student.attendence');
