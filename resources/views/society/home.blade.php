@@ -6,6 +6,9 @@
     <img class="card-img-top " src="{{ asset('img.png') }}" alt="Card image cap">
 
 </div>
+@php
+$user=Session::get('user');
+@endphp
     <div class="row px-3 py-2">
         <div class="col-md-4 col-sm-12 ">
             <div class="container-fluid  text-white py-2 rounded-top"
@@ -16,27 +19,27 @@
                 <tbody>
                     <tr>
                         <td scope="row">Society Name</td>
-                        <td>computer science of india</td>
+                        <td>{{$user[0]['society_name']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Society Head</td>
-                        <td>ayush singh</td>
+                        <td>{{$user[0]['society_head']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Society Conviner</td>
-                        <td>ayush singh</td>
+                        <td>{{$user[0]['society_conviner']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Contact</td>
-                        <td>977994578</td>
+                        <td>{{$user[0]['society_contact']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Email</td>
-                        <td>ayushsingh123@gmail.com</td>
+                        <td>{{$user[0]['society_email']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Discription</td>
-                        <td>Lorem  consectetur, adlpa corrupti ucusantium, possimus iste placeat, asps ab, eos cum natus. Minus suscipit v</td>
+                        <td>{{$user[0]['society_description']}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -56,23 +59,23 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>Hacking</td>
+                        <td>20/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>ITian club</td>
+                        <td>05/03/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>Hacking</td>
+                        <td>25/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>CSI</td>
+                        <td>10/04/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                 </tbody>

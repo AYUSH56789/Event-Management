@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('society_conviner', 30)->required();
             $table->string('society_contact', 30)->required();
             $table->string('society_email', 50)->required();
+            $table->string('society_pass', 50)->required();
             $table->string('society_logo')->nullable()->default("logo not upload");
             $table->string('society_banner')->nullable()->default("banner not upload");
             $table->string('society_description')->required();

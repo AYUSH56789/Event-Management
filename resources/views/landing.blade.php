@@ -92,24 +92,20 @@
                 <tbody>
                     <tr>
                         <td scope="row">CSI</td>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>Hacking</td>
+                        <td>20/05/23</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">ITian club</td>
+                        <td>Crypto & Web3</td>
+                        <td>10/04/23</td>
                     </tr>
                     <tr>
                         <td scope="row">CSI</td>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>ChatGPT</td>
+                        <td>10/02/23</td>
                     </tr>
-                    <tr>
-                        <td scope="row">CSI</td>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">CSI</td>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -119,14 +115,19 @@
         <h4 class="m-0 p-0">Login --> Go Ahead!</h4>
     </div>
             <div class="container-fluid">
-                <form action="{{url('/')}}/admin/registration/add" method="post">
-                    <!-- @csrf -->
+                @if(session('error'))
+    <div class="alert alert-warning m-2 z-index-2">
+        {{ session('error') }}
+    </div>
+@endif
+                <form action="{{url('/')}}" method="post">
+                     @csrf 
                     <div class="row ">
                         <div class="col-12 col-sm-12 py-2">
                             <select class="form-select" name="role" form-select aria-label=".form-select-lg example">
                                 <option selected>Select your Role</option>
                                 <option value="admin">Admin</option>
-                                <option value="Society">Society</option>
+                                <option value="society">Society</option>
                                 <option value="user">User/Student</option>
                               </select>
                         </div>
@@ -156,7 +157,13 @@
                                   </span>
                         </div>
                     </div>
-                    <a href="#" class="link-primary link-offset-2 link-underline link-underline-opacity-0" data-bs-toggle="modal" data-bs-target="#myModal">Student/User New Registration?</a>
+                    {{-- </div> --}}
+                    <div class="container text-center my-3 ">
+                        <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Submit</button>
+                        <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
+                    </div>
+                </form>
+                <a href="#" class="link-primary link-offset-2 link-underline link-underline-opacity-0" data-bs-toggle="modal" data-bs-target="#myModal">Student/User New Registration?</a>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -170,21 +177,21 @@
                                         {{-- <div class="container bg-dark text-white"> --}}
                                             {{-- <h3 class="text-center h1 bg-dark text-white p-1 rounded-top">Create Event</h3> --}}
                                         {{-- </div>     --}}
-                                    <form action=" " method="post" class="px-4 py-2">
+                                    <form action="{{route("create_user")}}" method="post" class="px-4 py-2">
                                         @csrf
                                         <div class="row ">
                                             <div class="col-md-6 py-2">
-                                              <input type="text" class="form-control" placeholder="Name" name="name" value="{{old('name')}}">
+                                              <input type="text" class="form-control" placeholder="Name" name="user_name" >
                                               <span class="text-danger">
-                                                @error('name')
+                                                @error('user_name')
                                                 {{$message}}
                                                 @enderror
                                               </span>
                                             </div>
                                             <div class="col-md-6 py-2">
-                                                <input type="text" class="form-control" placeholder="Branch Name" name="branch_name" value="{{old('branch_name')}}">
+                                                <input type="text" class="form-control" placeholder="Branch Name" name="user_branch" >
                                                 <span class="text-danger">
-                                                  @error('branch_name')
+                                                  @error('user_branch')
                                                   {{$message}}
                                                   @enderror
                                                 </span>
@@ -192,17 +199,17 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 py-2">
-                                              <input type="text" class="form-control" placeholder="Urn" name="urn" value="{{old('urn')}}">
+                                              <input type="text" class="form-control" placeholder="Urn" name="user_urn" >
                                               <span class="text-danger">
-                                                @error('urn')
+                                                @error('user_urn')
                                                 {{$message}}
                                                 @enderror
                                               </span>
                                             </div>
                                             <div class="col-md-6 py-2">
-                                              <input type="text" class="form-control" placeholder="Crn" name="crn" value="{{old('crn')}}">
+                                              <input type="text" class="form-control" placeholder="Crn" name="user_crn" >
                                               <span class="text-danger">
-                                                @error('crn')
+                                                @error('user_crn')
                                                 {{$message}}
                                                 @enderror
                                               </span>
@@ -210,18 +217,18 @@
                                           </div>
                                         <div class="row">
                                             <div class="col-md-6 py-2">
-                                              <input type="text" class="form-control" placeholder="Year"  name="year" value="{{old('year')}}">
+                                              <input type="text" class="form-control" placeholder="Year"  name="user_year" value="{{old('year')}}">
                                               <span class="text-danger">
-                                                @error('year')
+                                                @error('user_year')
                                                 {{$message}}
                                                 @enderror
                                               </span>
                                             </div>
                                            
                                                 <div class="col-md-6 py-2">
-                                                    <input type="text" class="form-control" placeholder="Email" name="user_email" value="{{old('user_co')}}">
+                                                    <input type="text" class="form-control" placeholder="Set Password" name="user_pass" >
                                                     <span class="text-danger">
-                                                      @error('user-email')
+                                                      @error('user_pass')
                                                       {{$message}}
                                                       @enderror
                                                     </span>
@@ -230,26 +237,32 @@
                                           </div>
                                           <div class="row">
                                           <div class="col-md-6 py-2">
-                                            <input type="file" class="form-control" placeholder="Photo" name="photo" value="{{old('photo')}}">
-                                            <span class="text-danger">
-                                              @error('photo')
-                                              {{$message}}
-                                              @enderror
-                                            </span>
+                                            <input type="text" class="form-control" placeholder="Email" name="user_email" >
+                                                    <span class="text-danger">
+                                                      @error('user-email')
+                                                      {{$message}}
+                                                      @enderror
+                                                    </span>
                                           </div>
                                           <div class="col-md-6 py-2">
-                                            <input type="text" class="form-control" placeholder="Contact" name="user_contact" value="{{old('user_co')}}">
+                                            <input type="text" class="form-control" placeholder="Contact" name="user_contact" >
                                             <span class="text-danger">
                                               @error('user_contact')
                                               {{$message}}
                                               @enderror
                                             </span>
                                           </div>
-                                          </div>
-                                        
-                                            
-                                          
-                                          
+                                          </div> 
+                                          <div class="row">
+                                            <div class="col-md-6 py-2">
+                                                <input type="file" class="form-control" placeholder="Photo" name="user_photo" >
+                                                <span class="text-danger">
+                                                  @error('user_photo')
+                                                  {{$message}}
+                                                  @enderror
+                                                </span>
+                                            </div>                                            
+                                          </div>    
                                           <div class="container text-center my-3 ">
                                     <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Register</button>
                                     <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
@@ -260,12 +273,6 @@
                                 
                             </div>
                         </div>
-                    {{-- </div> --}}
-                    <div class="container text-center my-3 ">
-                        <button type="submit" class="  custom-btn  mx-3 p-1 w-25">Submit</button>
-                        <button type="reset" class="  custom-btn mx-3 p-1 w-25">Reset</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class Student extends Controller
 {
     public function index(){
@@ -17,5 +18,9 @@ class Student extends Controller
     }
     public function attendence(){
         return view('student.attendence');
+    }
+    public function logout(Request $req){      
+        $req->session()->forget("student");
+        return redirect(route('homepage'));
     }
 }

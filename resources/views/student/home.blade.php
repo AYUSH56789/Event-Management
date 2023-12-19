@@ -2,6 +2,9 @@
 @push('title')
 <title>student</title>
 @section('main-section')
+@php
+$student=Session::get('student');
+@endphp
 <div class="row px-3 py-2">
         <div class="col-md-4 col-sm-12 ">
             <div class="container-fluid  text-white py-2 rounded-top"
@@ -12,31 +15,31 @@
                 <tbody>
                     <tr>
                         <td scope="row">Name</td>
-                        <td>Ayush Singh</td>
+                        <td>{{$student[0]['user_name']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Branch</td>
-                        <td>Information Technology</td>
+                        <td>{{$student[0]['user_branch']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Year</td>
-                        <td>3rd year</td>
+                        <td>{{$student[0]['user_year']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Urn</td>
-                        <td>2104484</td>
+                        <td>{{$student[0]['user_urn']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Crn</td>
-                        <td>2121028</td>
+                        <td>{{$student[0]['user_crn']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Contact</td>
-                        <td>977994578</td>
+                        <td>{{$student[0]['user_contact']}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Email</td>
-                        <td>ayushsingh123@gmail.com</td>
+                        <td>{{$student[0]['user_emailc']}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -56,23 +59,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>Hacking</td>
+                        <td>10/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>web3</td>
+                        <td>02/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                     <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
-                        <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
-                    </tr>
-                    <tr>
-                        <td>ayush singh</td>
-                        <td>ayush singh</td>
+                        <td>Hacking</td>
+                        <td>20/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                 </tbody>

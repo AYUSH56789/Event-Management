@@ -54,9 +54,9 @@
           </span>
         </div>
         <div class="col-md-6 py-2">
-          <input type="file" class="form-control" placeholder="logo" name="society_logo" value="{{old('society_logo')}}">
+          <input type="text" class="form-control" placeholder="Set Password" name="society_pass" value="{{old('society_pass')}}">
           <span class="text-danger">
-            @error('logo')
+            @error('society_pass')
             {{$message}}
             @enderror
           </span>
@@ -67,6 +67,14 @@
           <input type="file" class="form-control" placeholder="Banner" name="society_banner" value="{{old('society_banner')}}">
           <span class="text-danger">
             @error('Banner')
+            {{$message}}
+            @enderror
+          </span>
+        </div>
+        <div class="col-md-6 py-2">
+          <input type="file" class="form-control" placeholder="logo" name="society_logo" value="{{old('society_logo')}}">
+          <span class="text-danger">
+            @error('logo')
             {{$message}}
             @enderror
           </span>

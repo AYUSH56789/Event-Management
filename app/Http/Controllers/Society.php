@@ -24,4 +24,8 @@ class Society extends Controller
     public function attendence(){
         return view('society.attendence');
     }
+    public function logout(Request $req){
+        $req->session()->forget("user");
+        return redirect(route('homepage'));
+    }
 }

@@ -41,6 +41,7 @@ class Admin extends Controller
                 "society_conviner"=>"required",
                 "society_contact"=>"required ",
                 "society_email"=>"required | email ",
+                "society_pass"=>"required ",
                 // "society_logo"=>"required", //pending
                 // "society_banner"=>"required", //pending
                 "society_description"=>"required"
@@ -53,6 +54,7 @@ class Admin extends Controller
         $soc->society_conviner=$req['society_conviner'];
         $soc->society_contact=$req['society_contact'];
         $soc->society_email=$req['society_email'];
+        $soc->society_pass=$req['society_pass'];
         $soc->society_logo=$req['society_logo'];
         $soc->society_banner=$req['society_banner'];
         $soc->society_description=$req['society_description'];

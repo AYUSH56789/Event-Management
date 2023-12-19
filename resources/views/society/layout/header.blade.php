@@ -280,9 +280,9 @@
                 </li>
             </ul>
             <!-- Login Button -->
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-light bg-white btn-sm my-2 mx-4 my-sm-0" type="submit">Login</button>
-            </form>
+            {{-- <form  action="" method="POST" class="form-inline my-2 my-lg-0"> --}}
+            <a href="{{route('society.logout')}}"><button class="btn btn-light bg-white btn-sm my-2 mx-4 my-sm-0" type="submit">Log Out</button></a>
+            {{-- </form> --}}
         </div>
     </nav>
     <script>
