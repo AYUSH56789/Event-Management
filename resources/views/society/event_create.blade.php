@@ -6,7 +6,7 @@
     {{-- <div class="container bg-dark text-white"> --}}
         <h3 class="text-center h1 bg-dark text-white p-1 rounded-top">Create Event</h3>
     {{-- </div>     --}}
-<form action=" " method="post" class="px-4 py-2">
+<form action="{{route('society.event_create')}} " method="post" class="px-4 py-2">
     @csrf
     <div class="row ">
         <div class="col-md-6 py-2">
@@ -19,10 +19,10 @@
         </div>
         <div class="col-md-6 py-2">
             {{-- <div class="col-12 col-sm-12 py-2"> --}}
-                <select class="form-select" name="role" form-select aria-label=".form-select-lg example">
+                <select class="form-select" name="event_mode" form-select aria-label=".form-select-lg example">
                     <option selected>Select Event Mode </option>
-                    <option value="admin">Online</option>
-                    <option value="Society">Offline</option>
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
                   </select>
             {{-- </div> --}}
           {{-- <span class="text-danger">
@@ -52,7 +52,7 @@
       </div>
     <div class="row">
         <div class="col-md-6 py-2">
-          <input type="text" class="form-control" placeholder="Event Date & Time"  name="event_date" value="{{old('event_date')}}">
+          <input type="datetime-local" class="form-control" placeholder="Event Date & Time"  name="event_date" value="{{old('event_date')}}">
           <span class="text-danger">
             @error('event_date')
             {{$message}}
@@ -60,7 +60,7 @@
           </span>
         </div>
         <div class="col-md-6 py-2">
-          <input type="text" class="form-control" placeholder="Event Duration" name="event_duration" value="{{old('event_duration')}}">
+          <input type="time" class="form-control" placeholder="Event Duration" name="event_duration" value="{{old('event_duration')}}">
           <span class="text-danger">
             @error('event_duration')
             {{$message}}
@@ -70,17 +70,17 @@
       </div>
     <div class="row">
         <div class="col-md-6 py-2">
-          <input type="text" class="form-control" placeholder="Registration Start Date & Time" name="reg_start_time" value="{{old('reg_start_time')}}">
+          <input type="datetime-local" class="form-control" placeholder="Registration End Date & Time" name="reg_end_datetime" value="{{old('reg_start_time')}}">
           <span class="text-danger">
-            @error('reg_start_time')
+            @error('reg_end_datetime')
             {{$message}}
             @enderror
           </span>
         </div>
         <div class="col-md-6 py-2">
-          <input type="text" class="form-control" placeholder="Registration End Date & Time" name="reg_start_time" value="{{old('reg_start_time')}}">
+          <input type="text" class="form-control" placeholder="Contact" name="event_contact" value="{{old('event_contact')}}">
           <span class="text-danger">
-            @error('reg_start_time')
+            @error('event_contact')
             {{$message}}
             @enderror
           </span>
@@ -88,23 +88,13 @@
       </div>
     <div class="row ">
         <div class="col-md-6 py-2">
-          <input type="text" class="form-control" placeholder="Email" name="event_email" value="{{old('event_name')}}">
+          <input type="text" class="form-control" placeholder="Email" name="event_email" value="{{old('event_email')}}">
           <span class="text-danger">
             @error('event_email')
             {{$message}}
             @enderror
           </span>
         </div>
-        <div class="col-md-6 py-2">
-            <input type="text" class="form-control" placeholder="Contact" name="event_contact" value="{{old('event_name')}}">
-            <span class="text-danger">
-              @error('event_contact')
-              {{$message}}
-              @enderror
-            </span>
-          </div>
-      </div>
-    <div class="row ">
         <div class="col-md-6 py-2">
           <input type="file" class="form-control" placeholder="Banner" name="event_banner" value="{{old('event_banner')}}">
           <span class="text-danger">
@@ -114,6 +104,9 @@
           </span>
         </div>
       </div>
+    {{-- <div class="row "> --}}
+        
+      {{-- </div> --}}
       <div class="form-group py-2">
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Event Discription" name="event_description" value="{{old('event_description')}}"></textarea>
         <span class="text-danger">

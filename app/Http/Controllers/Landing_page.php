@@ -62,8 +62,11 @@ class Landing_page extends Controller
             }
         }
         else if($req->role=="society"){
-            $record=Society::where("society_email", $req->email)->where("society_pass",$req->pass)->get();
-            if($record->isNotEmpty()){
+            $record=Society::where("society_email", $req->email)->where("society_pass",$req->pass)->first();
+            if($record){
+                $record = json_decode($record);
+                // echo $record;
+                // die;
             $req->session()->put("user",$record);
             return redirect(route('society.home'));
             }
@@ -72,8 +75,8 @@ class Landing_page extends Controller
             }
         }
         else if($req->role=="user"){
-            $record=student::where("user_email", $req->email)->where("user_pass",$req->pass)->get();
-            if($record->isNotEmpty()){
+            $record=student::where("user_email", $req->email)->where("user_pass",$req->pass)->first();
+            if($record){
             $req->session()->put("student",$record);
             return redirect(route('student.home'));
             }
@@ -83,6 +86,7 @@ class Landing_page extends Controller
         }
         else{
             // flash meassage
+            return redirect(route('homepage'))->with("error","Invalid Username and Password");
         }
     }
 }

@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SocietyEvent;
 
 
 class Student extends Controller
 {
     public function index(){
-        return view('student.home');
+        $event=SocietyEvent::all();
+        $event=compact('event');
+        return view('student.home')->with($event);
     }
     public function event(){
-        return view('student.event');
+        $event=SocietyEvent::all();
+        $event=compact('event');
+        return view('student.event')->with($event);
     }
     public function certificate(){
         return view('student.certificate');

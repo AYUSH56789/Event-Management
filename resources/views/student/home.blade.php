@@ -15,31 +15,31 @@ $student=Session::get('student');
                 <tbody>
                     <tr>
                         <td scope="row">Name</td>
-                        <td>{{$student[0]['user_name']}}</td>
+                        <td>{{$student->user_name}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Branch</td>
-                        <td>{{$student[0]['user_branch']}}</td>
+                        <td>{{$student->user_branch}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Year</td>
-                        <td>{{$student[0]['user_year']}}</td>
+                        <td>{{$student->user_year}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Urn</td>
-                        <td>{{$student[0]['user_urn']}}</td>
+                        <td>{{$student->user_urn}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Crn</td>
-                        <td>{{$student[0]['user_crn']}}</td>
+                        <td>{{$student->user_crn}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Contact</td>
-                        <td>{{$student[0]['user_contact']}}</td>
+                        <td>{{$student->user_contact}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Email</td>
-                        <td>{{$student[0]['user_emailc']}}</td>
+                        <td>{{$student->user_email}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -58,12 +58,17 @@ $student=Session::get('student');
                     </tr>
                 </thead>
                 <tbody>
+                    
+                    @foreach ($event as $ev)
+                        
+                   
                     <tr>
-                        <td>Hacking</td>
+                        <td>{{$ev->event_name}}</td>
                         <td>10/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
-                    <tr>
+                    @endforeach
+                    {{-- <tr>
                         <td>web3</td>
                         <td>02/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
@@ -72,7 +77,7 @@ $student=Session::get('student');
                         <td>Hacking</td>
                         <td>20/05/23</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>

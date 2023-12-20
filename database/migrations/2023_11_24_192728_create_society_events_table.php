@@ -12,7 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('society_events', function (Blueprint $table) {
-            $table->id();
+            $table->id("event_id");
+            $table->string('society_name', 50)->required();
+            $table->string('event_name', 50)->required();
+            $table->string('event_mode', 30)->required();
+            $table->string('event_vanue')->required();
+            $table->string('watsapp_link')->required();
+            $table->dateTime('event_datetime')->required();
+            $table->string('event_duration')->required();
+            $table->dateTime('event_reg_end_datetime')->required();
+            $table->string('event_contact', 30)->required();
+            $table->string('event_email', 50)->required();
+            $table->string('event_banner')->nullable()->default("banner not upload");
+            $table->text('event_discription')->required();
             $table->timestamps();
         });
     }

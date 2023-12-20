@@ -8,6 +8,7 @@
 </div>
 @php
 $user=Session::get('user');
+
 @endphp
     <div class="row px-3 py-2">
         <div class="col-md-4 col-sm-12 ">
@@ -19,27 +20,27 @@ $user=Session::get('user');
                 <tbody>
                     <tr>
                         <td scope="row">Society Name</td>
-                        <td>{{$user[0]['society_name']}}</td>
+                        <td>{{$user->society_name}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Society Head</td>
-                        <td>{{$user[0]['society_head']}}</td>
+                        <td>{{$user->society_head}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Society Conviner</td>
-                        <td>{{$user[0]['society_conviner']}}</td>
+                        <td>{{$user->society_conviner}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Contact</td>
-                        <td>{{$user[0]['society_contact']}}</td>
+                        <td>{{$user->society_contact}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Email</td>
-                        <td>{{$user[0]['society_email']}}</td>
+                        <td>{{$user->society_email}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Discription</td>
-                        <td>{{$user[0]['society_description']}}</td>
+                        <td>{{$user->society_description}}</td>
                     </tr>
                 </tbody>
             </table>
