@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\SocietyEvent;
 use Carbon\Carbon;
@@ -9,23 +9,27 @@ use Carbon\Carbon;
 
 class Society extends Controller
 {
+
+    
+
     public function index(){
         return view('society.home');
     }
     public function member(){
         return view('society.member');
     }
+    
     public function event(){
         $record = session()->get("user");
-    $societyName = $record->society_name;
+    $societyId = $record->society_id;
     // echo $societyName;
     // die;
-    $data = SocietyEvent::where('society_name', $societyName)->get();
-    
+    $data = SocietyEvent::where('society_id', $societyId)->get();
+    // print_r($data);die;
     // echo $data;
         if($data->isNotEmpty()){
     // Store the data in the session
-    session()->put('society_events', $data);;
+    session()->put('society_id', $data);;
         return view('society.event');
         }else{
             
@@ -56,10 +60,12 @@ class Society extends Controller
         
        
         $soc=new SocietyEvent();
-        // print_r( $req->all());die;
+        // print_r( $req->all());
         $soc_name=$req->session()->get('user');
-        $soc_name=$soc_name->society_name;
-        $soc->society_name=$soc_name;
+        $soc_id=$soc_name->society_id;
+        // echo $soc_id;
+        // die;
+        $soc->society_id=$soc_id;
         $soc->event_name=$req['event_name'];
         $soc->event_mode=$req['event_mode'];
         $soc->event_vanue=$req['event_vanue'];
@@ -76,7 +82,21 @@ class Society extends Controller
         return redirect(route('society.event'));
     }
     public function attendence(){
-        return view('society.attendence');
+        $record = session()->get("user");
+        $societyId = $record->society_id;
+        // echo $societyName;
+        // die;
+        $data = SocietyEvent::where('society_id', $societyId)->get();
+        // print_r($data);die;
+        // echo $data;
+            if($data->isNotEmpty()){
+        // Store the data in the session
+        session()->put('society_id', $data);;
+            return view('society.attendence');
+            }else{
+                
+            }
+        // return redirect(route('generate-qrcode'));
     }
     public function logout(Request $req){
         $req->session()->forget("user");

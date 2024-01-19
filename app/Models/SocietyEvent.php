@@ -10,4 +10,7 @@ class SocietyEvent extends Model
     use HasFactory;
     protected $table='society_events';
     protected $primaryKey='event_id';
+    protected $casts = [
+        'event_datetime' => 'datetime',
+    ];
 }

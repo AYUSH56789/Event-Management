@@ -90,21 +90,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach( $data1 as $event)
                     <tr>
-                        <td scope="row">CSI</td>
-                        <td>Hacking</td>
-                        <td>20/05/23</td>
+                        <td scope="row">{{$event->society_name}}</td>
+                        <td >{{$event->event_name}}</td>
+                        <td >{{$event->event_datetime->format('Y-m-d')}}</td>
+                        {{-- <td>Hacking</td> --}}
+                        {{-- <td>20/05/23</td> --}}
                     </tr>
-                    <tr>
-                        <td scope="row">ITian club</td>
-                        <td>Crypto & Web3</td>
-                        <td>10/04/23</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">CSI</td>
-                        <td>ChatGPT</td>
-                        <td>10/02/23</td>
-                    </tr>
+                    @endforeach
                     
                 </tbody>
             </table>
@@ -290,7 +284,7 @@
                 <select class="form-select form-select" name="society" aria-label=".form-select-lg example">
                     <option selected>Select Society</option>
                     @foreach($data as $s_name)
-                    <option value="CSI">{{$s_name}}</option>
+                    <option value="{{$s_name}}">{{$s_name}}</option>
                     @endforeach
                   </select>
                   <span class="text-danger">

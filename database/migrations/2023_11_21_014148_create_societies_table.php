@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -12,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('societies', function (Blueprint $table) {
-            $table->id('society_id');
+            $table->bigIncrements('society_id');
             $table->string('society_name', 50)->required();
             $table->string('society_head', 30)->required();
             $table->string('society_conviner', 30)->required();
@@ -24,8 +25,11 @@ return new class extends Migration
             $table->string('society_description')->required();
             $table->timestamps();
         });
-        
+
+        // Set the starting value and increment for society_id
+        DB::statement('ALTER TABLE societies AUTO_INCREMENT = 1000');
     }
+
 
     /**
      * Reverse the migrations.

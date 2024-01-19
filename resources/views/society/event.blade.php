@@ -5,7 +5,7 @@
 {{-- {{print_r($data);}} --}}
 @php
         // Retrieve the data from the session
-        $data = session()->get('society_events');
+        $data = session()->get('society_id');
     @endphp
 @foreach($data as $d)
  <div class="row m-3 border  px-2 py-3  rounded">

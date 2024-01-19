@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 // use society modal
 use App\Models\Society;
 use App\Models\student;
+use App\Models\SocietyEvent;
 
 class Landing_page extends Controller
 {
@@ -46,9 +47,14 @@ class Landing_page extends Controller
 
     // view landing page
     public function homepage(){
+        $data1 = SocietyEvent::join('societies', 'society_events.society_id', '=', 'societies.society_id')
+        ->select('society_events.*', 'societies.society_name')
+        // ->select('societies.society_name')
+        ->get();
         $data=Society::pluck("society_name");
-        $data=compact('data');
-        return view('landing')->with($data);
+        // print_r($data);die;
+        $data=compact('data',"data1");
+         return view('landing')->with($data);
     }
 
     public function auth(Request $req){

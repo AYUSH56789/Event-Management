@@ -59,12 +59,11 @@ $student=Session::get('student');
                 </thead>
                 <tbody>
                     
-                    @foreach ($event as $ev)
+                    @foreach($data as $registration)
                         
-                   
                     <tr>
-                        <td>{{$ev->event_name}}</td>
-                        <td>10/05/23</td>
+                        <td>{{ $registration->event->event_name }}</td>
+                        <td>{{ $registration->event->event_datetime->format('Y-m-d') }}</td>
                         <td class="d-flex align-item-center justify-content-center"><button type="reset" class="btn w-80  custom-btn py-0 ">Know More</button></td>
                     </tr>
                     @endforeach
