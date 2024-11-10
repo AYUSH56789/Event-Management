@@ -6,71 +6,81 @@ use Illuminate\Http\Request;
 use App\Services\QRCodeServiceForAttendence;
 use App\Models\Attendance;
 use App\Models\IsAttendenceActivate;
+use Illuminate\Mail\Mailables\Content;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Crypt;
 
 class AttendenceController extends Controller
 {
-    // public function index(Request $req){
-    //     // echo "reach";
-    //     return view('society.attendence');
-    //     // return view('attendence');
-    // }
-    // public function attendence(Request $req){
-    // $student=new Attendance();
+    public function processQRCode(Request $request)
+    {
+        try {
+            // Retrieve the JSON data from the request body
+            $jsonData = $request->json()->all();
 
+            // Access the 'content' property from $jsonData
+            $content = $jsonData['content'];
+            $decryptedData = Crypt::decrypt($content);
 
-    // $student->student_name=$req->input("name");
-    // $student->student_urn=$req->input("urn");
-    // $student->save();
-    // echo "your attendence is mark";
-    // return view('attendence');
-    // }
+            // Deserialize the data
+            $deserializedData = unserialize($decryptedData);
+
+            // Extract the event ID
+            $eventId = $deserializedData['event_id'];
+             
+            // For example, you can return a response indicating success along with the content
+            return response()->json(['status' => 'success', 'data' => $eventId]);
+        } catch (\Exception $e) {
+            // If an exception occurs, return a response indicating failure
+            return response()->json(['status' => 'fail', 'message' => $e->getMessage()]);
+        }
+    }
 
     public function generate(QRCodeServiceForAttendence $qrCodeService)
     {
-        $data=IsAttendenceActivate::all();
-        print_r($data);die;
+        $data = IsAttendenceActivate::all();
+        // print_r($data);
         // Retrieve the selected event ID from the form
-    $eventId = request('event_id');
-    $societyId = session()->get('society_id');
-    $existingActiveAttendance = IsAttendenceActivate::where('society_id', $societyId)
-    ->where('is_active', true)
-    ->exists();
+        $eventId = request('event_id');
+        // $societyId = session()->get('society_id');
+        // $existingActiveAttendance = IsAttendenceActivate::where('society_id', $societyId)
+        // ->where('is_active', true)
+        // ->exists();
 
-if ($existingActiveAttendance) {
-    return redirect()->back()->with('error', 'Deactivate your current attendance before activating another event.');
-}
-    // Ensure a valid event ID is selected
-    if (!$eventId) {
-        return redirect()->back()->with('error', 'Please select an event before generating the QR code.');
-    }
+        // if ($existingActiveAttendance) {
+        //     return redirect()->back()->with('error', 'Deactivate your current attendance before activating another event.');
+        // }
+        // Ensure a valid event ID is selected
+        if (!$eventId) {
+            return redirect()->back()->with('error', 'Please select an event before generating the QR code.');
+        }
 
-    // check if row is created than update the value not create
-    IsAttendenceActivate::where('event_id', $eventId)
-        ->where('is_active', false)
-        ->update(['is_active' => true]);
+        // check if row is created than update the value not create
+        IsAttendenceActivate::where('event_id', $eventId)
+            ->where('is_active', false)
+            ->update(['is_active' => true]);
 
-    // Check if attendance is not already active for the event
-    if (!IsAttendenceActivate::where('event_id', $eventId)->where('is_active', true)->exists()) {
-        // Create a new IsActiveAttendence record with is_active set to true
-        IsAttendenceActivate::create([
-            'event_id' => $eventId,
-            'is_active' => true,
+        // Check if attendance is not already active for the event
+        if (!IsAttendenceActivate::where('event_id', $eventId)->where('is_active', true)->exists()) {
+            // Create a new IsActiveAttendence record with is_active set to true
+            IsAttendenceActivate::create([
+                'event_id' => $eventId,
+                'is_active' => true,
+            ]);
+        }
+
+        // Combine the unique code and event ID as an associative array
+        $data = encrypt(serialize(['uuid' => Str::uuid(), 'event_id' => $eventId]));
+
+        // Generate QR code as response
+        $response = $qrCodeService->generateQRCode($data);
+
+        // Pass the content along with the selected event ID to the view
+        return view("society.attendence")->with([
+            'content' => $response->getContent(),
+            'eventId' => $eventId, // Pass the selected event ID to the view
         ]);
-    }
-
-    // Combine the unique code and event ID as an associative array
-    $data = encrypt(serialize(['uuid' => Str::uuid(), 'event_id' => $eventId]));
-
-    // Generate QR code as response
-    $response = $qrCodeService->generateQRCode($data);
-
-    // Pass the content along with the selected event ID to the view
-    return view("society.attendence")->with([
-        'content' => $response->getContent(),
-        'eventId' => $eventId, // Pass the selected event ID to the view
-    ]);
     }
 
 

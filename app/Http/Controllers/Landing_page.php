@@ -59,7 +59,7 @@ class Landing_page extends Controller
 
     public function auth(Request $req){
         //    echo "<pre>";
-        if ($req->role=="admin" ) { 
+        if($req->role=="admin" ) { 
             if($req->email=="ayushsingh46026@gmail.com" &&$req->pass=="ayush123"){
                 return redirect(route('admin.home'));
             }

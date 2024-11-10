@@ -51,5 +51,9 @@ Route::middleware(['authstudent'])->group(function () {
     Route::get('/student/event/register', [Student::class, "event_reg"])->name('student.event_reg');
     Route::get('/student/certificate', [Student::class, "certificate"])->name('student.certification');
     Route::get('/student/attendence', [Student::class, "attendence"])->name('student.attendence');
+    Route::post('/student/attendence', [AttendenceController::class, "processQRCode"])->name('student.process-qrcode');
+    // web.php
+// Route::post('/society/process-qrcode', 'SocietyController@processQRCode')->name('society.process-qrcode');
+
     Route::get('/student/logout', [Student::class, "logout"])->name('student.logout');
 });
